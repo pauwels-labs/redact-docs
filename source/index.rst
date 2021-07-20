@@ -40,8 +40,8 @@ from data leaks, allows complete control and knowledge over who has acces to
 data, and standardizes secure authentication mechanisms that don't rely on
 passwords.
 
-.. note:: The applications discussed in the above paragraph are `redact-client`_
-   and `redact-store`_.
+.. note:: The two applications that enable this functionality are
+   `redact-client`_ and `redact-store`_.
    
    The client application runs on the user's device and handles requests from
    the browser for secure data display. The storage application is a server that

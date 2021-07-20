@@ -30,7 +30,7 @@ Self-hosted storage
    
    * Sign up for a free, fully-managed instance at `mongodb.com`_ (easy, quick)
    * Set up an instance on your local device or host your own instance (harder,
-     time-consuming, mmore customizable)
+     time-consuming, more customizable)
 
 2. ``git clone https://github.com/pauwels-labs/redact-store.git``
 3. ``echo "export REDACT_DB_URL=\"<mongo connection string>\"" >>
