@@ -43,8 +43,8 @@ rely on passwords.
 .. note:: The two applications that enable a user to store and retrieve encrypted data are
    `redact-client`_ and `redact-store`_.
    
-   The redact-client runs on the user's device and handles requests from
-   the browser for secure data display. The redact-storage is a server that
+   The Redact-client runs on the user's device and handles requests from
+   the browser for secure data display. The Redact-storage is a server that
    fronts some backing database and provides a stable API for CRUD operations on
    encrypted data.
 

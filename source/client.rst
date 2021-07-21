@@ -69,7 +69,7 @@ Header Parameters
 
 * ``Cookie sid=<session ID>``
 
-  * The session ID is used internally by the client to associate the request
+  * The session ID is used internally by the Redact-client to associate the request
     with a session in its session store
 
 Path Parameters
@@ -83,7 +83,7 @@ Path Parameters
   * ``.someArr[0].``
 
 * ``<token>`` is a random, 256-bit, upper-case alphanumeric CSRF token that is
-  generated and used internally by the client
+  generated and used internally by the Redact-client
     
 Query Parameters
 ~~~~~~~~~~~~~~~~
@@ -131,14 +131,14 @@ Header Parameters
 
 * ``Cookie sid=<session ID>``
 
-  * The session ID is used internally by the client to associate the request
+  * The session ID is used internally by the Redact-client to associate the request
     with a session in its session store
 
 Path Parameters
 ~~~~~~~~~~~~~~~
 
 * ``<token>`` is a random, 256-bit, upper-case alphanumeric CSRF token that is
-  generated and used internally by the client
+  generated and used internally by the Redact-client.
     
 Query Parameters
 ~~~~~~~~~~~~~~~~

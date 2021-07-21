@@ -6,12 +6,12 @@ Broadly speaking, the steps to get started with Redact are as follows:
 
 1. Get access to a `redact-store`_ instance
 2. Install the `redact-client`_ locally on a device
-3. Point your browser to a redact-enabled website
+3. Point your browser to a Redact-enabled website
 
 .. _redact-store: https://github.com/pauwels-labs/redact-store
 .. _redact-client: https://github.com/pauwels-labs/redact-client
 
-Setup redact-store
+Setup Redact-store
 ------------------
 The storage service can be either self-hosted or provided by a third-party.
 Since it only stores encrypted data, the provider of the storage service does
@@ -22,7 +22,7 @@ A self-hosted storage is fairly easy to setup, and primarily involves procuring
 a database (currently only MongoDB is supported) and standing up the
 redact-store server to connect to it.
 
-A third-party storage will simply provide a URL for the client to connect to.
+A third-party storage will simply provide a URL for the Redact-client to connect to.
 
 Self-hosted Redact-storage
 ~~~~~~~~~~~~~~~~~~~
@@ -55,7 +55,7 @@ Visit Redact-enabled website
 ----------------------------
 Once the Redact-client is
 setup locally and points to a working storage instance, Redact-enabled websites
-will work. The client handles generation and coordination of
+will work. The Redact-client handles generation and coordination of
 cryptographic material with no further input.
 
 .. warning:: Redact currently only supports storing keys unencrypted on the file

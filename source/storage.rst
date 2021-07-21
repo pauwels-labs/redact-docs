@@ -8,8 +8,8 @@ public API, along with an authentication and authorization layer that allows
 clients to request or modify the stored data.
 
 An important note is that the owner of the Redact-storage server does not need to be
-trusted. The client encrypts stored data before sending it to storage, meaning
-that the storage server only ever handles ciphertexts (unless the client is
+trusted. The Redact-client encrypts stored data before sending it to storage, meaning
+that the storage server only ever handles ciphertexts (unless the Redact-client is
 purposefully storing public, plaintext information). This allows operation of a
 multi-tenant storage service to be delegated to a third-party, reducing the
 burden on users.
