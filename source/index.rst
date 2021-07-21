@@ -31,71 +31,78 @@
    basic-website
    advanced-features
 
-Redact is a set of applications that allows developers to build end-to-end
-encrypted websites and users to use these websites. When leveraging Redact,
-website owners are able to display secure user data on their webpages without
-being able to know or read that data back to themselves. Securing websites in
-this way is beneficial to both the user and the website owner as it protects
-from data leaks, allows complete control and knowledge over who has acces to
-data, and standardizes secure authentication mechanisms that don't rely on
-passwords.
+Redact is a set of applications that allows developers to build websites with
+end-to-end encrypted data. When leveraging Redact, website owners are able to
+display secure user data on their webpages without having access to that data
+themselves. Instead, users store sensitive data in their personal Redact storage
+and retain the ability to grant and revoke access to other users of
+applications. Securing data in this way protects from data leaks and gives users
+control of their own data by using secure authentication mechanisms that don't
+rely on passwords.
 
-.. note:: The two applications that enable this functionality are
+.. note:: The two applications that enable a user to store and retrieve encrypted data are
    `redact-client`_ and `redact-store`_.
    
-   The client application runs on the user's device and handles requests from
-   the browser for secure data display. The storage application is a server that
+   The redact-client runs on the user's device and handles requests from
+   the browser for secure data display. The redact-storage is a server that
    fronts some backing database and provides a stable API for CRUD operations on
    encrypted data.
 
-   The last important repository is `redact-crypto`_, which is a library, not an
-   application, and provides all important cryptographic and storage
+   The `redact-crypto`_ library provides all important cryptographic and storage
    abstractions.
 
    .. _redact-client: https://github.com/pauwels-labs/redact-client
    .. _redact-store: https://github.com/pauwels-labs/redact-store
    .. _redact-crypto: https://github.com/pauwels-labs/redact-crypto
 
-Redact protects from data leaks as it removes the website's need to store data
-entirely. In a traditional website, the website owner will maintain a database
-which allows them to store relevant information that their users submit. When a
-user visits the website, this information is fetched from the database and
-displayed. In a Redact-enabled website, the information stored in the website's
-database is only a reference to data. For example, in the traditional website,
-there might be a database field called "name" with the value "Alice Doe". In the
-Redact-enabled website, the database field would still be called "name" but its
-value would be something like ".profile.name.". This value is picked up by the
-Redact application installed on the user's device, and is translated into the
-actual data in a way that makes it impossible for the website owner to read it
-back to themselves. With no data to steal, the website owner no longer has to
-worry about the liability of data leaks, and users can rest assured in knowing
-that the potential attack surface for their data is greatly reduced to a single,
+Redact protects from data leaks as it removes the website's need to store
+sensitive data entirely. In a traditional website, the website owner maintains a
+database which allows them to store relevant information that their users submit
+(such as a phone number or address). When a user visits the website, this
+information is fetched from the database and displayed. By storing the data of
+many users in a centralized database, a single breach can expose the data of all
+users of a site.  A user must trust that the website has implemented appropriate
+protection measures.
+
+In a Redact-enabled website, a user can guarantee that "Redacted" data on a
+webpage has been secured with strong encryption, is only accessible to those who
+are explicitly granted access, and can be deleted or updated at any time.  In
+order to operate on the "Redacted" data, websites maintain references to it.
+For example, in a traditional website, there might be a database field called
+"name" with the value "Alice Doe". In the Redact-enabled website, the database
+field would still be called "name" but its value would be something like
+".profile.name.". This value is interpreted by the Redact-client (installed on
+the user's device), and is translated into the readable data in a way that makes
+it impossible for the website owner to read it unless granted access by the
+user. With no data to steal, the website owner no longer has to worry about the
+liability of data leaks, and users can rest assured in knowing that the
+potential attack surface for their data is greatly reduced to a single,
 higly-secure, encrypted location.
 
 This tight control over data storage then empowers users to make explicit
 decisions as to who has access to their data. For example, imagine the
 Redact-enabled website in question is a portal used by healthcare providers to
-share test results, schedule appointments, refill prescriptions, or message your
-doctor.  You would want that data to be shared with all treating medical
-professionals, and you'd want to make sure they all have access to the same, and
-latest, set of data. With Redact, all of a user's data is stored in one place,
-so all requests for data will be seen and either approved or denied by the user.
-Furthermore, it's all updated in one place, so everyone always gets the same
-copy.
+share test results and track prescriptions. A user may want that data to be
+shared with all treating medical professionals, and would want to make sure they
+all have access to the most up-to-date set of data. With Redact, all of a user's
+data can be stored in their personal Redact-storage while still being accessible
+on the health portal. Not only can a user see their own data, they can also
+grant access to health professionals or institutions so they can view the data
+in a Redact-enabled portal as well. Furthermore, it's all updated in one place,
+so everyone always gets the same copy.
 
 In order to identify different users to each other and secure this data storage,
-Redact has to be paired with a strong authentication and authorization
-framework. It achieves this by employing a public-key infrastructure, assigning
-keypairs to individual users and certificate authorities to organizations. At
-the lowest level, users can authenticate themselves anonymously to any Redact
-service using mutual-TLS requests with a self-signed client
-certificate. Depending on the authorization requirements of the request, this
-request could be accepted, or it could be denied. By augmenting the certificate
-with metadata and having it be signed by a certificate authority recognized by
-the server, any arbitrary authorization check can be performed to further
-approve or deny the request. The management of certificates and secret keys is
-entirely handled by the Redact application and eliminates the need for passwords
-or user-initiated login procedures.
+Redact is paired with a strong authentication and authorization framework. It
+employes a public-key infrastructure and assigns keypairs to individual users,
+and certificate authorities to organizations. At the lowest level, users can
+authenticate themselves anonymously to any Redact service using mutual-TLS
+requests with a self-signed Redact-client certificate. Depending on the
+authorization requirements of the request, this request could be accepted, or it
+could be denied. By augmenting the certificate with metadata and having it be
+signed by a certificate authority recognized by the server, any arbitrary
+authorization check can be performed to further approve or deny the request. The
+management of certificates and secret keys is entirely handled by Redact and
+eliminates the need for passwords or user-initiated login procedures.
 
 When put together, the components of Redact represent a method for storing and
 handling user data that fundamentally changes the model for data ownership that
