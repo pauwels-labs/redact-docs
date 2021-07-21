@@ -24,7 +24,7 @@ redact-store server to connect to it.
 
 A third-party storage will simply provide a URL for the client to connect to.
 
-Self-hosted storage
+Self-hosted Redact-storage
 ~~~~~~~~~~~~~~~~~~~
 1. Get access to a MongoDB instance
    
@@ -32,29 +32,30 @@ Self-hosted storage
    * Set up an instance on your local device or host your own instance (harder,
      time-consuming, more customizable)
 
-2. ``git clone https://github.com/pauwels-labs/redact-store.git``
-3. ``echo "export REDACT_DB_URL=\"<mongo connection string>\"" >>
+2. Install Rust: https://www.rust-lang.org/tools/install 
+3. ``git clone https://github.com/pauwels-labs/redact-store.git``
+4. ``echo "export REDACT_DB_URL=\"<mongo connection string>\"" >>
    config/config.env``
-4. ``echo "export REDACT_DB_NAME=\"<db name>\"" >> config/config.env``
-5. ``source config/config.env``
-6. ``cargo r``
+5. ``echo "export REDACT_DB_NAME=\"<db name>\"" >> config/config.env``
+6. ``source config/config.env``
+7. ``cargo r``
 
 The port and address listened on by the storage server will be provided to the
 client.
 
 .. _mongodb.com: https://mongodb.com
 
-Install redact-client
+Install Redact-client
 ---------------------
 1. ``git clone https://github.com/pauwels-labs/redact-client.git``
-2. Provide a URL to the storage server in ``config/config.yaml#storage.url``
+2. Provide the Redact-storage URL in ``config/config.yaml#storage.url``
 3. ``cargo r``
 
-Visit redact-enabled website
+Visit Redact-enabled website
 ----------------------------
-Once the client is
+Once the Redact-client is
 setup locally and points to a working storage instance, Redact-enabled websites
-should begin working. The client will handle generation and coordination of
+will work. The client handles generation and coordination of
 cryptographic material with no further input.
 
 .. warning:: Redact currently only supports storing keys unencrypted on the file
