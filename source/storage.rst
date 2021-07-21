@@ -2,12 +2,12 @@
  Storage
 =========
 
-The storage server's purpose is to provide a public interface for the Redact
-client to perform CRUD operations on stored data with. It provides a stable
-public API along with an authentication and authorization layer that allows
-clients to attempt to request or change the data it stores.
+The Redact-storage's purpose is to provide a public interface for the
+Redact-client to perform CRUD operations on encrypted data. It provides a stable,
+public API, along with an authentication and authorization layer that allows
+clients to request or modify the stored data.
 
-An important note is that the owner of the storage server does not need to be
+An important note is that the owner of the Redact-storage server does not need to be
 trusted. The client encrypts stored data before sending it to storage, meaning
 that the storage server only ever handles ciphertexts (unless the client is
 purposefully storing public, plaintext information). This allows operation of a
