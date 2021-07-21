@@ -61,12 +61,12 @@ database which allows them to store relevant information that their users submit
 (such as a phone number or address). When a user visits the website, this
 information is fetched from the database and displayed. By storing the data of
 many users in a centralized database, a single breach can expose the data of all
-users of a site.  A user must trust that the website has implemented appropriate
+users of a site. A user must trust that the website has implemented appropriate
 protection measures.
 
 In a Redact-enabled website, a user can guarantee that "Redacted" data on a
 webpage has been secured with strong encryption, is only accessible to those who
-are explicitly granted access, and can be deleted or updated at any time.  In
+are explicitly granted access, and can be deleted or updated at any time. In
 order to operate on the "Redacted" data, websites maintain references to it.
 For example, in a traditional website, there might be a database field called
 "name" with the value "Alice Doe". In the Redact-enabled website, the database
@@ -106,7 +106,7 @@ eliminates the need for passwords or user-initiated login procedures.
 
 When put together, the components of Redact represent a method for storing and
 handling user data that fundamentally changes the model for data ownership that
-has existed since the beginning of the internet.  The expectation has always
+has existed since the beginning of the internet. The expectation has always
 been for users to generate data that is then stored and managed by the website
 owner. This creates numerous liabilities for both the website owner and user as
 this data is valuable and prone to theft. In the Redact model, user-generated

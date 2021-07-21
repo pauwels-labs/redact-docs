@@ -6,7 +6,7 @@ The purpose of the Redact-client is to host a small server on the
 user's device (e.g. phone, laptop) to respond to requests for private
 data. It listens on a local port, currently defaulted to
 ``::8080``, and responds to these requests with a secure ``<iframe>``
-buffer that will display the data without allowing the website to read
+buffer that displays the data without allowing the website to read
 it back to itself.
 
 .. note:: For more information on how the secure ``<iframe>`` buffers
