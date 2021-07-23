@@ -9,26 +9,8 @@ development and planned for a future release, but is included in this document
 because it is a crucial component not only for Redact, but also for
 Redact-enabled websites. 
 
-Simple Data Portal
-------------------
-A simple data portal is a website which allows users to see and modify their own
-data in a browser. A healthcare provider may provide a portal for patients to
-view their medical test results, or a real estate company might provide a portal
-for clients to view and annotate property listings. Typically, the user data
-(eg. medical test results or property listing annotations) resides on the
-database of the web-portal provider, but with Redact the data never leaves the
-user's computer in a form that can be decrypted by a web server. Unlike
-traditional data encryption, websites using Redact to protect data do not need
-to maintain and manage cryptography keys, nor do they have to be concerned with
-access control of sensitive data. The access control is managed by the owner of
-the data, who must explicitly provide decryption keys to any user who wants
-access. As a result, the worst-case scenario that a web portal provider needs to
-consider in terms of data privacy is that they incorrectly attempt to show to a
-user data that they do not have access to, and the user sees an error instead of
-the data.
-
 Static Web Page
-~~~~~~~~~~~~~~~
+---------------
 Let's begin by building a web page that statically displays "Redacted" user
 data. The website will be a contact page where a user can enter their name,
 phone number, and social security number, all of which are stored in an
@@ -108,7 +90,7 @@ iframe.  Add a link or button which directs the user from the view-only page to
 the editable page, and vice-versa.
 
 Modern Web Application
-~~~~~~~~~~~~~~~~~~~~~~
+----------------------
 Modern web applications use javascript to respond to user actions and modify the
 page, and a backend server which responds to HTTP requests for data retrieval
 and updates.  Because Redact data is stored and operated on in a manner which is
