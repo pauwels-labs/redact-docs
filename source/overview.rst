@@ -53,6 +53,9 @@ The general flow to request data to be displayed works as such:
    There are additional parameters that can be provided which further customize
    the Redact-client's response, but are left out here for simplicity.
 
+   .. image:: _static/images/iframe_1.png
+   :alt: Web page body, with the iframe reference to a Redact path
+
 2. The Redact-client receives the request and does four things:
 
    1. Generates a random 256-bit session token.
@@ -64,6 +67,9 @@ The general flow to request data to be displayed works as such:
       this::
 
 	<iframe src="/data/.profile.firstName./498DF68A39A51DE648799EE13CD26D2163863FC5F43814B8895B78BBA45935A0"></iframe>
+
+   .. image:: _static/images/iframe_2.png
+   :alt: Web page body after first iframe is rendered, with inner iframe referencing the Redact path and session token
 
 3. Upon rendering the iframe response, the browser makes another request to the
    Redact-client, once again according to the ``src`` of the inner ``<iframe>``. 
@@ -77,6 +83,9 @@ The general flow to request data to be displayed works as such:
    3. If the tokens match, it proceeds with fetching the requested data,
       decrypting it, and responding with an HTML page containing the
       plaintext. If the tokens do not match, the request is rejected.
+
+   .. image:: _static/images/iframe_3.png
+   :alt: Web page body after secure iframe is rendered, with the decrypted Redact data
 
 This process allows the Redact-client to ensure that the only time it responds
 with plaintext data is when the request for the data is coming from itself.
