@@ -2,7 +2,9 @@
  Client
 ========
 
-The purpose of the Redact-client is to host a small server on the
+.. _client:
+
+The purpose of the :ref:`Client<client>` is to host a small server on the
 user's device (e.g. phone, laptop) to respond to requests for private
 data. It listens on a local port, currently defaulted to
 ``::8080``, and responds to these requests with a secure ``<iframe>``
@@ -53,7 +55,7 @@ editable form field.
   * ``F64``
   * ``String``
 
-* ``relay_url`` (optional) is the URL endpoint which will recieve a ``POST``
+* ``relay_url`` (optional) is the URL endpoint which will receive a ``POST``
   HTTP request upon submission of editable data.
 
   * This would typically be a URL controlled by the host of the Redact-enabled
@@ -69,7 +71,7 @@ Header Parameters
 
 * ``Cookie sid=<session ID>``
 
-  * The session ID is used internally by the Redact-client to associate the request
+  * The session ID is used internally by the :ref:`Client<client>` to associate the request
     with a session in its session store
 
 Path Parameters
@@ -83,13 +85,13 @@ Path Parameters
   * ``.someArr[0].``
 
 * ``<token>`` is a random, 256-bit, upper-case alphanumeric CSRF token that is
-  generated and used internally by the Redact-client
+  generated and used internally by the :ref:`Client<client>`
     
 Query Parameters
 ~~~~~~~~~~~~~~~~
 
 .. note:: These query parameters are identical to those of ``GET /data/<path>``
-   and are typically automatically included in this request by the Redact-client.
+   and are typically automatically included in this request by the :ref:`Client<client>`.
 
 * ``css`` (optional) is a URL-encoded CSS block meant to style the displayed data.
 
@@ -113,7 +115,7 @@ editable form field.
   * ``F64``
   * ``String``
 
-* ``relay_url`` (optional) is the URL endpoint which will recieve a ``POST``
+* ``relay_url`` (optional) is the URL endpoint which will receive a ``POST``
   HTTP request upon submission of editable data.
 
   * This would typically be a URL controlled by the host of the Redact-enabled
@@ -131,14 +133,14 @@ Header Parameters
 
 * ``Cookie sid=<session ID>``
 
-  * The session ID is used internally by the Redact-client to associate the request
+  * The session ID is used internally by the :ref:`Client<client>` to associate the request
     with a session in its session store
 
 Path Parameters
 ~~~~~~~~~~~~~~~
 
 * ``<token>`` is a random, 256-bit, upper-case alphanumeric CSRF token that is
-  generated and used internally by the Redact-client.
+  generated and used internally by the :ref:`Client<client>`.
     
 Query Parameters
 ~~~~~~~~~~~~~~~~
@@ -177,5 +179,5 @@ Body Parameters
   * ``F64``
   * ``String``
 
-* ``relay_url`` (optional) is the URL endpoint which will recieve a ``POST``
+* ``relay_url`` (optional) is the URL endpoint which will receive a ``POST``
   HTTP request upon submission of editable data.

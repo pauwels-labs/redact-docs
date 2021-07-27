@@ -27,9 +27,9 @@ to keep track of who has access to what, Redact uses self-sovereign identities
 in the form of asymmetric keypairs.
 
 At the most basic level, all users have their own keypair with a self-signed
-Redact-client certificate. They can use this keypair and certificate to make anonymous
+client certificate. They can use this keypair and certificate to make anonymous
 requests to services that support anonymity. These requests are made using
-mutual TLS to share the identity of the user. For example, when the Redect-client
+mutual TLS to share the identity of the user. For example, when the :ref:`Client<client>`
 requests data from a storage server, or relays a message to a website host, it
 does so using this client certificate.
 
@@ -47,8 +47,8 @@ Redact leverages encryption to minimize the amount of time and places that your
 data is available in plaintext. Its encryption framework relies on two crucial
 invariants:
 
-1. Private data is only decrypted by the Redact-client.
-2. Private data never exits the Redact-client in plaintext.
+1. Private data is only decrypted by the :ref:`Client<client>`.
+2. Private data never exits the :ref:`Client<client>` in plaintext.
 
 By following these two rules, Redact ensures that the attack surface for
 exfiltrating private data remains as small as possible.

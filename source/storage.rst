@@ -2,14 +2,16 @@
  Storage
 =========
 
-The Redact-storage's purpose is to provide a public interface for the
-Redact-client to perform CRUD operations on encrypted data. It provides a stable,
+.. _storage:
+
+The :ref:`Storage<storage>`'s purpose is to provide a public interface for the
+:ref:`Client<client>` to perform CRUD operations on encrypted data. It provides a stable,
 public API, along with an authentication and authorization layer that allows
 clients to request or modify the stored data.
 
-An important note is that the owner of the Redact-storage server does not need to be
-trusted. The Redact-client encrypts stored data before sending it to storage, meaning
-that the storage server only ever handles ciphertexts (unless the Redact-client is
+An important note is that the owner of the :ref:`Storage<storage>` server does not need to be
+trusted. The :ref:`Client<client>` encrypts stored data before sending it to storage, meaning
+that the storage server only ever handles ciphertexts (unless the :ref:`Client<client>` is
 purposefully storing public, plaintext information). This allows operation of a
 multi-tenant storage service to be delegated to a third-party, reducing the
 burden on users.

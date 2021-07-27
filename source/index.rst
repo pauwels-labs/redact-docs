@@ -34,17 +34,16 @@
 Redact is a set of applications that allows developers to build websites with
 end-to-end encrypted data. When leveraging Redact, website owners are able to
 display secure user data on their webpages without having access to that data
-themselves. Instead, users store sensitive data in their personal Redact storage
-and retain the ability to grant and revoke access to other users of
-applications. Securing data in this way protects from data leaks and gives users
-control of their own data by using secure authentication mechanisms that don't
-rely on passwords.
+themselves. Securing websites in this way is beneficial to both the user and the
+website owner as it protects from data leaks, allows complete control and
+knowledge over who has access to data, and standardizes secure authentication
+mechanisms that don't rely on passwords.
 
 .. note:: The two applications that enable a user to store and retrieve encrypted data are
    `redact-client`_ and `redact-store`_.
    
-   The Redact-client runs on the user's device and handles requests from
-   the browser for secure data display. The Redact-storage is a server that
+   The :ref:`Client<client>` runs on the user's device and handles requests from
+   the browser for secure data display. The :ref:`Storage<storage>` is a server that
    fronts some backing database and provides a stable API for CRUD operations on
    encrypted data.
 
@@ -67,11 +66,11 @@ protection measures.
 In a Redact-enabled website, a user can guarantee that "Redacted" data on a
 webpage has been secured with strong encryption, is only accessible to those who
 are explicitly granted access, and can be deleted or updated at any time. In
-order to operate on the "Redacted" data, websites maintain references to it.
+order to operate on the redacted data, websites maintain references to it.
 For example, in a traditional website, there might be a database field called
 "name" with the value "Alice Doe". In the Redact-enabled website, the database
 field would still be called "name" but its value would be something like
-".profile.name.". This value is interpreted by the Redact-client (installed on
+".profile.name.". This value is interpreted by the :ref:`Client<client>` (installed on
 the user's device), and is translated into the readable data in a way that makes
 it impossible for the website owner to read it unless granted access by the
 user. With no data to steal, the website owner no longer has to worry about the
@@ -85,7 +84,7 @@ Redact-enabled website in question is a portal used by healthcare providers to
 share test results and track prescriptions. A user may want that data to be
 shared with all treating medical professionals, and would want to make sure they
 all have access to the most up-to-date set of data. With Redact, all of a user's
-data can be stored in their personal Redact-storage while still being accessible
+data can be stored in their personal :ref:`Storage<storage>` while still being accessible
 on the health portal. Not only can a user see their own data, they can also
 grant access to health professionals or institutions so they can view the data
 in a Redact-enabled portal as well. Furthermore, it's all updated in one place,
@@ -96,7 +95,7 @@ Redact is paired with a strong authentication and authorization framework. It
 employes a public-key infrastructure and assigns keypairs to individual users,
 and certificate authorities to organizations. At the lowest level, users can
 authenticate themselves anonymously to any Redact service using mutual-TLS
-requests with a self-signed Redact-client certificate. Depending on the
+requests with a self-signed :ref:`Client<client>` certificate. Depending on the
 authorization requirements of the request, this request could be accepted, or it
 could be denied. By augmenting the certificate with metadata and having it be
 signed by a certificate authority recognized by the server, any arbitrary

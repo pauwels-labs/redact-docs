@@ -22,9 +22,9 @@ A self-hosted storage is fairly easy to setup, and primarily involves procuring
 a database (currently only MongoDB is supported) and standing up the
 redact-store server to connect to it.
 
-A third-party storage will simply provide a URL for the Redact-client to connect to.
+A third-party storage will simply provide a URL for the :ref:`Client<client>` to connect to.
 
-Self-hosted Redact-storage
+Self-hosted Storage
 ~~~~~~~~~~~~~~~~~~~
 1. Get access to a MongoDB instance
    
@@ -45,17 +45,17 @@ client.
 
 .. _mongodb.com: https://mongodb.com
 
-Install Redact-client
+Install redact-client
 ---------------------
 1. ``git clone https://github.com/pauwels-labs/redact-client.git``
-2. Provide the Redact-storage URL in ``config/config.yaml#storage.url``
+2. Provide the :ref:`Storage<storage>` URL in ``config/config.yaml#storage.url``
 3. ``cargo r``
 
 Visit Redact-enabled website
 ----------------------------
-Once the Redact-client is
+Once the :ref:`Client<client>` is
 setup locally and points to a working storage instance, Redact-enabled websites
-will work. The Redact-client handles generation and coordination of
+will work. The :ref:`Client<client>` handles generation and coordination of
 cryptographic material with no further input.
 
 .. warning:: Redact currently only supports storing keys unencrypted on the file
