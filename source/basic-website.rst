@@ -104,7 +104,7 @@ as well as on the backend (HTTP server).
 Imagine a website that presents an `alert` to a user when they submit data on a
 form. Normally, the submit button could have an event listener to do this.::
 
-    <button onclick="alert("Form Submitted")>Submit</button>
+    <button onclick="alert('Form Submitted')">Submit</button>
 
 If the submit button is within a Redact iframe, the web page does not have
 access to the ``<button>`` element, and cannot add an event listener in this
@@ -141,7 +141,7 @@ Redact iframe, the ``js_message`` query parameter must be used.  As an example,
 consider how a traditional website would trigger an alert on submission of a
 form using events and javascript::
 
-    <button onclick="alert("Form Submitted")>Submit</button>
+    <button onclick="alert('Form Submitted')">Submit</button>
 
 Use the ``js_message`` query parameter when retrieving an editable field::
 
