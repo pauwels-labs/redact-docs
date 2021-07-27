@@ -2,11 +2,13 @@
  Client
 ========
 
-The purpose of the Redact client is to host a small server on the
+.. _client:
+
+The purpose of the :ref:`Client<client>` is to host a small server on the
 user's device (e.g. phone, laptop) to respond to requests for private
-data. It will listen on a local port, currently defaulted to
-``::8080``, and respond to these requests with a secure ``<iframe>``
-buffer that will display the data without allowing the website to read
+data. It listens on a local port, currently defaulted to
+``::8080``, and responds to these requests with a secure ``<iframe>``
+buffer that displays the data without allowing the website to read
 it back to itself.
 
 .. note:: For more information on how the secure ``<iframe>`` buffers
@@ -31,17 +33,19 @@ Path Parameters
 Query Parameters
 ~~~~~~~~~~~~~~~~
 
-* ``css`` is a URL-encoded CSS block meant to style the displayed data
+* ``css`` (optional) is a URL-encoded CSS block meant to style the displayed data.
 
-  * The HTML to style can be found `here`_
+  * The HTML to style can be found `here`_.
 
-* ``edit`` should be ``true`` or ``false``
+* ``edit`` (optional) is a boolean indicating whether the data will be displayed in an
+editable form field.
 
-  * If ``true``, the value will be displayed in a submittable input box
-    appropriate for its data type
-  * If ``false``, the value will simply be displayed as a string
+  * ``true``: The value will be displayed in a submittable input box
+    appropriate for its data type.
+  * ``false``: The value will simply be displayed as a string.
+  * Default: ``false``
 
-* ``data_type`` specifies the type of data to expect; this is particularly
+* ``data_type`` (required) specifies the type of data to expect; this is particularly
   useful when creating new data that does not yet have a type. The value can be
   one of:
 
@@ -51,8 +55,8 @@ Query Parameters
   * ``F64``
   * ``String``
 
-* ``relay_url`` provides a callback handle to contact with feedback on stored
-  user input
+* ``relay_url`` (optional) is the URL endpoint which will receive a ``POST``
+  HTTP request upon submission of editable data.
 
   * This would typically be a URL controlled by the host of the Redact-enabled
     website and used for internal bookkeeping.
@@ -67,7 +71,7 @@ Header Parameters
 
 * ``Cookie sid=<session ID>``
 
-  * The session ID is used internally by the client to associate the request
+  * The session ID is used internally by the :ref:`Client<client>` to associate the request
     with a session in its session store
 
 Path Parameters
@@ -81,22 +85,27 @@ Path Parameters
   * ``.someArr[0].``
 
 * ``<token>`` is a random, 256-bit, upper-case alphanumeric CSRF token that is
-  generated and used internally by the client
+  generated and used internally by the :ref:`Client<client>`
     
 Query Parameters
 ~~~~~~~~~~~~~~~~
 
-* ``css`` is a URL-encoded CSS block meant to style the displayed data
+.. note:: These query parameters are identical to those of ``GET /data/<path>``
+   and are typically automatically included in this request by the :ref:`Client<client>`.
 
-  * The HTML to style can be found `here`_
+* ``css`` (optional) is a URL-encoded CSS block meant to style the displayed data.
 
-* ``edit`` should be ``true`` or ``false``
+  * The HTML to style can be found `here`_.
 
-  * If ``true``, the value will be displayed in a submittable input box
-    appropriate for its data type
-  * If ``false``, the value will simply be displayed as a string
+* ``edit`` (optional) is a boolean indicating whether the data will be displayed in an
+editable form field.
 
-* ``data_type`` specifies the type of data to expect; this is particularly
+  * ``true``: The value will be displayed in a submittable input box
+    appropriate for its data type.
+  * ``false``: The value will simply be displayed as a string.
+  * Default: ``false``
+
+* ``data_type`` (required) specifies the type of data to expect; this is particularly
   useful when creating new data that does not yet have a type. The value can be
   one of:
 
@@ -106,8 +115,8 @@ Query Parameters
   * ``F64``
   * ``String``
 
-* ``relay_url`` provides a callback handle to contact with feedback on stored
-  user input
+* ``relay_url`` (optional) is the URL endpoint which will receive a ``POST``
+  HTTP request upon submission of editable data.
 
   * This would typically be a URL controlled by the host of the Redact-enabled
     website and used for internal bookkeeping.
@@ -124,41 +133,43 @@ Header Parameters
 
 * ``Cookie sid=<session ID>``
 
-  * The session ID is used internally by the client to associate the request
+  * The session ID is used internally by the :ref:`Client<client>` to associate the request
     with a session in its session store
 
 Path Parameters
 ~~~~~~~~~~~~~~~
 
 * ``<token>`` is a random, 256-bit, upper-case alphanumeric CSRF token that is
-  generated and used internally by the client
+  generated and used internally by the :ref:`Client<client>`.
     
 Query Parameters
 ~~~~~~~~~~~~~~~~
 
-* ``css`` is a URL-encoded CSS block meant to style the displayed data
+* ``css`` (optional) is a URL-encoded CSS block meant to style the displayed data.
 
   * The HTML to style can be found `here`_
 
-* ``edit`` should be ``true`` or ``false``
+* ``edit`` (optional) is a boolean indicating whether the data will be displayed in an
+editable form field.
 
-  * If ``true``, the value will be displayed in a submittable input box
-    appropriate for its data type
-  * If ``false``, the value will simply be displayed as a string
+  * ``true``: The value will be displayed in a submittable input box
+    appropriate for its data type.
+  * ``false``: The value will simply be displayed as a string.
+  * Default: ``false``
 
 Body Parameters
 ~~~~~~~~~~~~~~~
 
-* ``<path>`` is a jsonpath-style string prepended and appended by a period,
+* ``<path>`` (required) is a jsonpath-style string prepended and appended by a period,
   e.g.
   
   * ``.someKey.``
   * ``.someObj.someVal.``
   * ``.someArr[0].``
 
-* ``value`` is the actual value of the data being submitted
+* ``value`` (required) is the actual value of the data being submitted
 
-* ``value_type`` specifies the type of data to expect; this is particularly
+* ``value_type`` (required) specifies the type of data to expect; this is particularly
   useful when creating new data that does not yet have a type. The value can be
   one of:
 
@@ -168,8 +179,5 @@ Body Parameters
   * ``F64``
   * ``String``
 
-* ``relay_url`` provides a callback handle to contact with feedback on stored
-  user input
-
-  * This would typically be a URL controlled by the host of the Redact-enabled
-    website and used for internal bookkeeping.
+* ``relay_url`` (optional) is the URL endpoint which will receive a ``POST``
+  HTTP request upon submission of editable data.

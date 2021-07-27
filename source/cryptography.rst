@@ -22,14 +22,14 @@ Identity
 Core to the Redact architecture is the concept of identity. In order for a user
 to give or deny access to a particular piece of data, they must at all times be
 capable of identifying who is requesting their data and what permissions this
-person has. In order to avoid centralization and dependance on a managed service
+user has. In order to avoid centralization and dependance on a managed service
 to keep track of who has access to what, Redact uses self-sovereign identities
 in the form of asymmetric keypairs.
 
 At the most basic level, all users have their own keypair with a self-signed
 client certificate. They can use this keypair and certificate to make anonymous
 requests to services that support anonymity. These requests are made using
-mutual TLS to share the identity of the user. For example, when the client
+mutual TLS to share the identity of the user. For example, when the :ref:`Client<client>`
 requests data from a storage server, or relays a message to a website host, it
 does so using this client certificate.
 
@@ -47,8 +47,8 @@ Redact leverages encryption to minimize the amount of time and places that your
 data is available in plaintext. Its encryption framework relies on two crucial
 invariants:
 
-1. Private data is only decrypted by the client
-2. Private data never exits the client in plaintext
+1. Private data is only decrypted by the :ref:`Client<client>`.
+2. Private data never exits the :ref:`Client<client>` in plaintext.
 
 By following these two rules, Redact ensures that the attack surface for
 exfiltrating private data remains as small as possible.
