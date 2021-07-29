@@ -65,7 +65,7 @@ Header Parameters
 Body Parameters
 ~~~~~~~~~~~~~~~
 
-The body of the POST request should be a JSON-serialized ``Entry`` struct. The definition
-of an ``Entry`` can be found `here`_.
+The body of the POST request should be a JSON-serialized ``Entry`` struct. The 
+definition of an ``Entry`` can be found `here`_.
 
 .. _here: https://github.com/pauwels-labs/redact-crypto/blob/main/src/entry.rs

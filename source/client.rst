@@ -20,7 +20,9 @@ API
 ``GET /data/<path>``
 ^^^^^^^^^^^^^^^^^^^^
 
-An unsecure request to the client for data at a given path. The response is not the data itself, but an HTML document with an iframe which makes a secure request to retrieve the data.
+An unsecure request to the client for data at a given path. The response is not
+the data itself, but an HTML document with an iframe which makes a secure
+request to retrieve the data.
 
 Path Parameters
 ~~~~~~~~~~~~~~~
@@ -82,7 +84,8 @@ Query Parameters
 ``GET /data/<path>/<token>``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-An secure request to the client for data at a given path. The response is and HTML document displaying the contents of the data.
+An secure request to the client for data at a given path. The response is and 
+HTML document displaying the contents of the data.
 
 Header Parameters
 ~~~~~~~~~~~~~~~~~
@@ -165,7 +168,8 @@ Query Parameters
 ``POST /data/<token>``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-A secure request to the client to update existing data or create new data at a given path.
+A secure request to the client to update existing data or create new data at a 
+given path.
 
 Header Parameters
 ~~~~~~~~~~~~~~~~~
@@ -264,8 +268,10 @@ Body Parameters
 ``POST /proxy``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Retrieves the response of a GET request to a given URL, which is made via the client with mutual TLS. The root domain of the URL requested must match
-the root domain of the request's ``Origin`` header value.  For more information on how to use the Proxy API, see :ref:`User Sessions`
+Retrieves the response of a GET request to a given URL, which is made via the 
+client with mutual TLS. The root domain of the URL requested must match the 
+root domain of the request's ``Origin`` header value.  For more information on
+how to use the Proxy API, see :ref:`User Sessions`.
 
 Header Parameters
 ~~~~~~~~~~~~~~~~~
