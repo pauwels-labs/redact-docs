@@ -259,3 +259,43 @@ Body Parameters
 
 .. _here: https://github.com/pauwels-labs/redact-client/tree/main/static/secure.handlebars
 
+.. _client proxy endpoint:
+
+``POST /proxy``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Retrieves the response of a GET request to a given URL, which is made via the client with mutual TLS. The root domain of the URL requested must match
+the root domain of the request's ``Origin`` header value.  For more information on how to use the Proxy API, see :ref:`User Sessions`
+
+Header Parameters
+~~~~~~~~~~~~~~~~~
+
+.. list-table::
+   :widths: 20 20 60
+   :header-rows: 1
+
+   * - Header Name
+     - Required?
+     - Description
+   * - ``Origin``
+     - Required
+     -
+   * - ``Content-Type``
+     - Required
+     - Must be: ``application/json``
+
+Body Parameters
+~~~~~~~~~~~~~~~
+
+.. list-table::
+   :widths: 10 15 45 30
+   :header-rows: 1
+
+   * - Parameter
+     - Required?
+     - Description
+     - Example
+   * - ``host_url``
+     - Required
+     - The URL to which to make a GET request
+     - ``https://foo.com/redact/session_create``

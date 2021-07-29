@@ -209,6 +209,7 @@ cryptography is used in Redact, see `Cryptography`_.
 .. _Authority Key Identifier: https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.1
 .. _Cryptography: https://docs.redact.ws/en/latest/cryptography.html
 
+.. _User Sessions:
 
 User Sessions
 ~~~~~~~~~~~~~ 
@@ -228,7 +229,7 @@ connection with the :ref:`Client<client>`.  This way, the server can validate th
 request coming from the UI is coming from the same user that established a
 mutual TLS between their client and the server on the same device.
 
-This approach to sessions with Redact utilizes the :ref:`Client<client>`'s proxy endpoint.
+This approach to sessions with Redact utilizes the :ref:`Client's proxy endpoint <client proxy endpoint>`.
 The proxy endpoint accepts requests directly to the client (as opposed to all other 
 requests which must be requested from within an iframe), and forwards the request
 as a GET request to a given endpoint. This request is optionally performed with
