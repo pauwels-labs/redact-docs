@@ -24,24 +24,43 @@ API
 
 ``GET /<path>``
 ^^^^^^^^^^^^^^^^^^^^
-   
+
+Retrieve data at a given path.
+
 Path Parameters
 ~~~~~~~~~~~~~~~
 
-* ``<path>`` is a jsonpath-style string prepended and appended by a period,
-  e.g.
-  
-  * ``.someKey.``
-  * ``.someObj.someVal.``
-  * ``.someArr[0].``
+.. list-table::
+   :widths: 20 15 45 20
+   :header-rows: 1
+
+   * - Parameter
+     - Required?
+     - Description
+     - Example
+   * - ``path``
+     - Required
+     - A jsonpath-style string prepended and appended by a period which represents the path of the data
+     - ``.someObj.someVal.``
 
 ``POST /``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Upsert data at a given path.
+
 Header Parameters
 ~~~~~~~~~~~~~~~~~
 
-* ``Content-Type application/json``
+.. list-table::
+   :widths: 20 20 60
+   :header-rows: 1
+
+   * - Header Name
+     - Required?
+     - Description
+   * - ``Content-Type``
+     - Required
+     - Must be: ``application/json``
     
 Body Parameters
 ~~~~~~~~~~~~~~~
