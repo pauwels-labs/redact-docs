@@ -241,6 +241,11 @@ Query Parameters
      - A boolean indicating whether the data will be displayed in an editable form field.  If ``true``, the value will be displayed in a submittable input box appropriate for its data type.
      - ``false``
      - ``true``
+   * - ``relay_url``
+     - Optional
+     - the URL endpoint to which a ``POST`` HTTP request will be sent upon submission of editable data. This would typically be a URL controlled by the host of the Redact-enabled website and used for internal bookkeeping.
+     - 
+     - ``https://foo.com/redact/relay``
 
 Body Parameters
 ~~~~~~~~~~~~~~~
@@ -271,10 +276,6 @@ Body Parameters
           * ``F64``
           * ``String``
      - ``String``
-   * - ``relay_url``
-     - Optional
-     - the URL endpoint to which a ``POST`` HTTP request will be sent upon submission of editable data. This would typically be a URL controlled by the host of the Redact-enabled website and used for internal bookkeeping.
-     - ``https://foo.com/redact/relay``
 
 .. _here: https://github.com/pauwels-labs/redact-client/tree/main/static/secure.handlebars
 
