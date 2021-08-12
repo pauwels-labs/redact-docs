@@ -122,6 +122,7 @@ In order to support backend server functionality Redact uses "data relays".
 Data relays instruct the :ref:`Client<client>` to securely send information about a data
 entry's Redact path to an arbitrary HTTP server.
 
+.. _JS Messaging:
 
 JS Messaging
 ~~~~~~~~~~~~
