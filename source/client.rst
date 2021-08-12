@@ -71,6 +71,9 @@ Query Parameters
           * ``I64``
           * ``F64``
           * ``String``
+          * ``Media``
+               * A Binary file that can be rendered in the browser. Currently supported file types are:
+                    * ``image/jpeg``
      -
      - ``String``
    * - ``relay_url``
@@ -165,6 +168,9 @@ Query Parameters
           * ``I64``
           * ``F64``
           * ``String``
+          * ``Media``
+               * A Binary file that can be rendered in the browser. Currently supported file types are:
+                    * ``image/jpeg``
      -
      - ``String``
    * - ``relay_url``
@@ -201,7 +207,8 @@ Header Parameters
      - The session ID is used internally by the :ref:`Client<client>` to associate the request with a session in its session store.
    * - ``Content-Type``
      - Required
-     - Must be: ``x-www-form-urlencoded``
+     - * ``x-www-form-urlencoded``: For types other than ``Media``
+       * ``multipart/form-data``: For the ``Media`` data type.
 
 Path Parameters
 ~~~~~~~~~~~~~~~
@@ -244,7 +251,7 @@ Query Parameters
    * - ``relay_url``
      - Optional
      - the URL endpoint to which a ``POST`` HTTP request will be sent upon submission of editable data. This would typically be a URL controlled by the host of the Redact-enabled website and used for internal bookkeeping.
-     - 
+     -
      - ``https://foo.com/redact/relay``
 
 Body Parameters
@@ -275,6 +282,9 @@ Body Parameters
           * ``I64``
           * ``F64``
           * ``String``
+          * ``Media``
+               * A Binary file that can be rendered in the browser. Currently supported file types are:
+                    * ``image/jpeg``
      - ``String``
 
 .. _here: https://github.com/pauwels-labs/redact-client/tree/main/static/secure.handlebars
