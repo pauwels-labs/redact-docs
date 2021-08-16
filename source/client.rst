@@ -74,6 +74,14 @@ Query Parameters
           * ``Media``
                * A Binary file that can be rendered in the browser. Currently supported file types are:
                     * ``image/jpeg``
+                    * ``image/png``
+                    * ``image/gif``
+                    * ``image/apng``
+                    * ``image/avif``
+                    * ``image/svg+xml``
+                    * ``image/webp``
+                    * ``video/mpeg``
+                    * ``video/mp4``
      -
      - ``String``
    * - ``relay_url``
@@ -171,6 +179,14 @@ Query Parameters
           * ``Media``
                * A Binary file that can be rendered in the browser. Currently supported file types are:
                     * ``image/jpeg``
+                    * ``image/png``
+                    * ``image/gif``
+                    * ``image/apng``
+                    * ``image/avif``
+                    * ``image/svg+xml``
+                    * ``image/webp``
+                    * ``video/mpeg``
+                    * ``video/mp4``
      -
      - ``String``
    * - ``relay_url``
@@ -285,6 +301,14 @@ Body Parameters
           * ``Media``
                * A Binary file that can be rendered in the browser. Currently supported file types are:
                     * ``image/jpeg``
+                    * ``image/png``
+                    * ``image/gif``
+                    * ``image/apng``
+                    * ``image/avif``
+                    * ``image/svg+xml``
+                    * ``image/webp``
+                    * ``video/mpeg``
+                    * ``video/mp4``
      - ``String``
 
 .. _here: https://github.com/pauwels-labs/redact-client/tree/main/static/secure.handlebars
