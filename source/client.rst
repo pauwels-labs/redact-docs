@@ -71,6 +71,17 @@ Query Parameters
           * ``I64``
           * ``F64``
           * ``String``
+          * ``Media``
+               * A Binary file that can be rendered in the browser. Currently supported file types are:
+                    * ``image/jpeg``
+                    * ``image/png``
+                    * ``image/gif``
+                    * ``image/apng``
+                    * ``image/avif``
+                    * ``image/svg+xml``
+                    * ``image/webp``
+                    * ``video/mpeg``
+                    * ``video/mp4``
      -
      - ``String``
    * - ``relay_url``
@@ -78,6 +89,16 @@ Query Parameters
      - the URL endpoint to which a ``POST`` HTTP request will be sent upon submission of editable data. This would typically be a URL controlled by the host of the Redact-enabled website and used for internal bookkeeping.
      -
      - ``https://foo.com/redact/relay``
+   * - ``js_message``
+     - Optional
+     - A base64-encoded and URL-encoded message which the editable Redact field will send to the parent page after data is successfully submitted. Refer to :ref:`JS Messaging` for more details.
+     -
+     - ``Y3JlYXRlZA%3D%3D``
+   * - ``js_height_msg_prefix``
+     - Optional
+     - A base64-encoded and URL-encoded message which a displayed Redact field will prepend to the pixel height of the rendered data, then send to the parent page. This can be used to dynamically adjust the height of a redact iframe on a web page based on the size of the rendered data.
+     -
+     - ``aGVpZ2h0Oi5hYmMuOg%3D%3D``
 
 .. _here: https://github.com/pauwels-labs/redact-client/tree/main/static/secure.handlebars
 
@@ -155,6 +176,17 @@ Query Parameters
           * ``I64``
           * ``F64``
           * ``String``
+          * ``Media``
+               * A Binary file that can be rendered in the browser. Currently supported file types are:
+                    * ``image/jpeg``
+                    * ``image/png``
+                    * ``image/gif``
+                    * ``image/apng``
+                    * ``image/avif``
+                    * ``image/svg+xml``
+                    * ``image/webp``
+                    * ``video/mpeg``
+                    * ``video/mp4``
      -
      - ``String``
    * - ``relay_url``
@@ -162,6 +194,11 @@ Query Parameters
      - the URL endpoint to which a ``POST`` HTTP request will be sent upon submission of editable data. This would typically be a URL controlled by the host of the Redact-enabled website and used for internal bookkeeping.
      -
      - ``https://foo.com/redact/relay``
+   * - ``js_message``
+     - Optional
+     - A base64-encoded and URL-encoded message which the editable Redact field will send to the parent page after data is successfully submitted. Refer to :ref:`JS Messaging` for more details.
+     -
+     - ``Y3JlYXRlZA%3D%3D``
 
 .. _here: https://github.com/pauwels-labs/redact-client/tree/main/static/secure.handlebars
 
@@ -186,7 +223,8 @@ Header Parameters
      - The session ID is used internally by the :ref:`Client<client>` to associate the request with a session in its session store.
    * - ``Content-Type``
      - Required
-     - Must be: ``x-www-form-urlencoded``
+     - * ``x-www-form-urlencoded``: For types other than ``Media``
+       * ``multipart/form-data``: For the ``Media`` data type.
 
 Path Parameters
 ~~~~~~~~~~~~~~~
@@ -226,6 +264,11 @@ Query Parameters
      - A boolean indicating whether the data will be displayed in an editable form field.  If ``true``, the value will be displayed in a submittable input box appropriate for its data type.
      - ``false``
      - ``true``
+   * - ``relay_url``
+     - Optional
+     - the URL endpoint to which a ``POST`` HTTP request will be sent upon submission of editable data. This would typically be a URL controlled by the host of the Redact-enabled website and used for internal bookkeeping.
+     -
+     - ``https://foo.com/redact/relay``
 
 Body Parameters
 ~~~~~~~~~~~~~~~
@@ -255,11 +298,18 @@ Body Parameters
           * ``I64``
           * ``F64``
           * ``String``
+          * ``Media``
+               * A Binary file that can be rendered in the browser. Currently supported file types are:
+                    * ``image/jpeg``
+                    * ``image/png``
+                    * ``image/gif``
+                    * ``image/apng``
+                    * ``image/avif``
+                    * ``image/svg+xml``
+                    * ``image/webp``
+                    * ``video/mpeg``
+                    * ``video/mp4``
      - ``String``
-   * - ``relay_url``
-     - Optional
-     - the URL endpoint to which a ``POST`` HTTP request will be sent upon submission of editable data. This would typically be a URL controlled by the host of the Redact-enabled website and used for internal bookkeeping.
-     - ``https://foo.com/redact/relay``
 
 .. _here: https://github.com/pauwels-labs/redact-client/tree/main/static/secure.handlebars
 
