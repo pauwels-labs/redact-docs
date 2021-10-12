@@ -6,12 +6,12 @@ Broadly speaking, the steps to get started with Redact are as follows:
 
 1. Get access to a `redact-store`_ instance
 2. Install the `redact-client`_ locally on a device
-3. Point your browser to a redact-enabled website
+3. Point your browser to a Redact-enabled website
 
 .. _redact-store: https://github.com/pauwels-labs/redact-store
 .. _redact-client: https://github.com/pauwels-labs/redact-client
 
-Setup redact-store
+Setup Redact-store
 ------------------
 
 The storage service can be either self-hosted or provided by a third-party.
@@ -23,9 +23,9 @@ A self-hosted storage is fairly easy to setup, and primarily involves procuring
 a database (currently only MongoDB is supported) and standing up the
 redact-store server to connect to it.
 
-A third-party storage will simply provide a URL for the client to connect to.
+A third-party storage will simply provide a URL for the :ref:`Client<client>` to connect to.
 
-Self-hosted storage
+Self-hosted Storage
 ~~~~~~~~~~~~~~~~~~~
 
 1. Get access to a MongoDB instance
@@ -34,12 +34,13 @@ Self-hosted storage
    * Set up an instance on your local device or host your own instance (harder,
      time-consuming, more customizable)
 
-2. ``git clone https://github.com/pauwels-labs/redact-store.git``
-3. ``echo "export REDACT_DB_URL=\"<mongo connection string>\"" >>
+2. Install Rust: https://www.rust-lang.org/tools/install 
+3. ``git clone https://github.com/pauwels-labs/redact-store.git``
+4. ``echo "export REDACT_DB_URL=\"<mongo connection string>\"" >>
    config/config.env``
-4. ``echo "export REDACT_DB_NAME=\"<db name>\"" >> config/config.env``
-5. ``source config/config.env``
-6. ``cargo r``
+5. ``echo "export REDACT_DB_NAME=\"<db name>\"" >> config/config.env``
+6. ``source config/config.env``
+7. ``cargo r``
 
 The port and address listened on by the storage server will be provided to the
 client.
@@ -66,8 +67,9 @@ In order to add this functionality to your storer, do the following:
 4. Click on Keys > Create new key, and create a new JSON key
 5. Download the key and save it to a safe place on your computer
 6. ``echo "export SERVICE_ACCOUNT=\"<path to file downloaded>\"" >> config/config.env``
-7. ``source config/config.env``
-8. ``cargo r``
+7. ``echo "export REDACT_GOOGLE_STORAGE_BUCKET_NAME=\"<bucket name>\"" >> config/config.env``
+8. ``source config/config.env``
+9. ``cargo r``
 
 .. _Google Cloud Storage: https://cloud.google.com/storage
 
@@ -75,7 +77,7 @@ Install redact-client
 ---------------------
 
 1. ``git clone https://github.com/pauwels-labs/redact-client.git``
-2. Provide a URL to the storage server in ``config/config.yaml#storage.url``
+2. Provide the :ref:`Storage<storage>` URL in ``config/config.yaml#storage.url``
 
    * If you set-up your own storage server using the steps above, the URL
      will likely be https://localhost:8081
@@ -89,7 +91,7 @@ Install redact-client
 
 4. ``cargo r``
 
-Visit redact-enabled website
+Visit Redact-enabled website
 ----------------------------
 
 We have an example website that allows you to demo Redact's current
@@ -97,10 +99,10 @@ feature-set called `Redact Feed`_, which allows you to post text and
 multimedia and see those posts displayed. Redact Feed will soon
 support data sharing and other social features.
 
-Once the client is setup locally and points to a working storage
-instance, Redact-enabled websites should "just work" (TM). The client
-will handle generation and coordination of cryptographic material with
-no further input.
+Once the :ref:`Client<client>` is setup locally and points to a
+working storage instance, Redact-enabled websites will "just work"
+(TM). The :ref:`Client<client>` handles generation and coordination of
+cryptographic material with no further input.
 
 .. warning:: Redact currently only supports storing keys unencrypted on the file
    system. Support for hardware and software key vaults is upcoming.

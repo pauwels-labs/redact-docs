@@ -2,14 +2,16 @@
  Storage
 =========
 
-The storage server's purpose is to provide a public interface for the Redact
-client to perform CRUD operations on stored data with. It provides a stable
-public API along with an authentication and authorization layer that allows
-clients to attempt to request or change the data it stores.
+.. _storage:
 
-An important note is that the owner of the storage server does not need to be
-trusted. The client encrypts stored data before sending it to storage, meaning
-that the storage server only ever handles ciphertexts (unless the client is
+The :ref:`Storage<storage>`'s purpose is to provide a public interface for the
+:ref:`Client<client>` to perform CRUD operations on encrypted data. It provides a stable,
+public API, along with an authentication and authorization layer that allows
+clients to request or modify the stored data.
+
+An important note is that the owner of the :ref:`Storage<storage>` server does not need to be
+trusted. The :ref:`Client<client>` encrypts stored data before sending it to storage, meaning
+that the storage server only ever handles ciphertexts (unless the :ref:`Client<client>` is
 purposefully storing public, plaintext information). This allows operation of a
 multi-tenant storage service to be delegated to a third-party, reducing the
 burden on users.
@@ -22,29 +24,48 @@ API
 
 ``GET /<path>``
 ^^^^^^^^^^^^^^^^^^^^
-   
+
+Retrieve data at a given path.
+
 Path Parameters
 ~~~~~~~~~~~~~~~
 
-* ``<path>`` is a jsonpath-style string prepended and appended by a period,
-  e.g.
-  
-  * ``.someKey.``
-  * ``.someObj.someVal.``
-  * ``.someArr[0].``
+.. list-table::
+   :widths: 20 15 45 20
+   :header-rows: 1
+
+   * - Parameter
+     - Required?
+     - Description
+     - Example
+   * - ``path``
+     - Required
+     - A jsonpath-style string prepended and appended by a period which represents the path of the data
+     - ``.someObj.someVal.``
 
 ``POST /``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Upsert data at a given path.
+
 Header Parameters
 ~~~~~~~~~~~~~~~~~
 
-* ``Content-Type application/json``
+.. list-table::
+   :widths: 20 20 60
+   :header-rows: 1
+
+   * - Header Name
+     - Required?
+     - Description
+   * - ``Content-Type``
+     - Required
+     - Must be: ``application/json``
     
 Body Parameters
 ~~~~~~~~~~~~~~~
 
-The body of the POST request should be a JSON-serialized ``Entry`` struct. The definition
-of an ``Entry`` can be found `here`_.
+The body of the POST request should be a JSON-serialized ``Entry`` struct. The 
+definition of an ``Entry`` can be found `here`_.
 
 .. _here: https://github.com/pauwels-labs/redact-crypto/blob/main/src/entry.rs
