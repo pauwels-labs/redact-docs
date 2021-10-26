@@ -33,6 +33,9 @@ Self-hosted Storage
    * Sign up for a free, fully-managed instance at `mongodb.com`_ (easy, quick)
    * Set up an instance on your local device or host your own instance (harder,
      time-consuming, more customizable)
+   * Minimum supported MongoDB version is 3.6+
+   * If running MongoDB locally and the storage cannot connect, try using
+     127.0.0.1 in the connection string instead of a hostname
 
 2. Install Rust: https://www.rust-lang.org/tools/install 
 3. ``git clone https://github.com/pauwels-labs/redact-store.git``
