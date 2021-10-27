@@ -17,7 +17,7 @@ it back to itself.
 API
 ---
 
-``GET /data/<path>``
+``GET /unsecure/data/<path>``
 ^^^^^^^^^^^^^^^^^^^^
 
 An unsecure request to the client for data at a given path. The response is not
@@ -102,7 +102,7 @@ Query Parameters
 
 .. _here: https://github.com/pauwels-labs/redact-client/tree/main/static/secure.handlebars
 
-``GET /data/<path>/<token>``
+``GET /secure/data/<path>/<token>``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 An secure request to the client for data at a given path. The response is and 
@@ -202,7 +202,7 @@ Query Parameters
 
 .. _here: https://github.com/pauwels-labs/redact-client/tree/main/static/secure.handlebars
 
-``POST /data/<token>``
+``POST /secure/data/<token>``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 A secure request to the client to update existing data or create new data at a 

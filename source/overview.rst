@@ -48,7 +48,7 @@ The general flow to request data to be displayed works as such:
 
 1. The website places an ``<iframe>`` element as a placeholder for the data::
      
-     <iframe src="/data/.profile.firstName."></iframe>
+     <iframe src="/unsecure/data/.profile.firstName."></iframe>
 
    There are additional parameters that can be provided which further customize
    the :ref:`Client<client>`'s response, but are left out here for simplicity.
@@ -66,7 +66,7 @@ The general flow to request data to be displayed works as such:
       attaching the token generated in step 1 to the end of the URL path, like
       this::
 
-	<iframe src="/data/.profile.firstName./498DF68A39A51DE648799EE13CD26D2163863FC5F43814B8895B78BBA45935A0"></iframe>
+	<iframe src="/secure/data/.profile.firstName./498DF68A39A51DE648799EE13CD26D2163863FC5F43814B8895B78BBA45935A0"></iframe>
 
 .. image:: _static/images/iframe_2.png
    :alt: Web page body after first iframe is rendered, with inner iframe referencing the Redact path and session token

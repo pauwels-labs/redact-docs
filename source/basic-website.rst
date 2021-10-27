@@ -20,13 +20,13 @@ into more advanced topics.
 
 To begin, create an HTML document that contains an iframe pointing to the Redact client.::
 
-     <iframe src="http://localhost:8080/data/.demoapp.name."></iframe>
+     <iframe src="http://localhost:8080/unsecure/data/.demoapp.name."></iframe>
 
 Start the :ref:`Client<client>` and :ref:`Storage<storage>` on your device and open the HTML
 document in a browser. Examine the ``<iframe>`` HTML contents and you should see
 that it has been populated by the client::
     
-    <iframe src="http://localhost:8080/data/.demoapp.name.">    <!-- The <iframe> from the source HTML document -->
+    <iframe src="http://localhost:8080/unsecure/data/.demoapp.name.">    <!-- The <iframe> from the source HTML document -->
         <html>    <!-- The response from the Client for the unauthenticated request -->
             ...
             <iframe id="data-frame" src="" title="secure"> 
@@ -45,7 +45,7 @@ The data requested at the path ``.demoapp.name.`` does not yet exist, so
 go ahead and create a form field so the user can add their name. Modify the
 iframe ``src`` to retrieve an editable form field for ``.demoapp.name.``::
 
-     <iframe src="http://localhost:8080/data/.demoapp.name.?edit=true"></iframe>
+     <iframe src="http://localhost:8080/unsecure/data/.demoapp.name.?edit=true"></iframe>
 
 ``edit=true`` has been added as a query parameter to the Redact request, which
 requests an editable field from the client. The form field is pre-populated with
@@ -67,7 +67,7 @@ the HTML page and style the outer iframe to have no border::
 Next, add a CSS query parameter to the Redact request to instruct the Client to
 apply the CSS to the response::
 
-     <iframe src="http://localhost:8080/data/.demoapp.name.?edit=true&css=iframe{border:none;height:50px}"></iframe>
+     <iframe src="http://localhost:8080/unsecure/data/.demoapp.name.?edit=true&css=iframe{border:none;height:50px}"></iframe>
 
 Now, simply add a few more form fields to represent the user's phone number and
 social security number, and add labels to the page so the user knows what each field represents.::
@@ -75,13 +75,13 @@ social security number, and add labels to the page so the user knows what each f
     <html>
         <body>
 	        <p>Name:</p>
-	        <iframe src="http://localhost:8080/data/.demoapp.name?edit=true&css=iframe{border:none;height:50px;}"></iframe>
+	        <iframe src="http://localhost:8080/unsecure/data/.demoapp.name?edit=true&css=iframe{border:none;height:50px;}"></iframe>
 
 	        <p>Phone Number:</p>
-	        <iframe src="http://localhost:8080/data/.demoapp.phonenumber?edit=true&css=iframe{border:none;height:50px;}"></iframe>
+	        <iframe src="http://localhost:8080/unsecure/data/.demoapp.phonenumber?edit=true&css=iframe{border:none;height:50px;}"></iframe>
 
 	        <p>Social Security Number:</p>
-	        <iframe src="http://localhost:8080/data/.demoapp.socialsecuritynumber?edit=true&css=iframe{border:none;height:50px;}"></iframe>
+	        <iframe src="http://localhost:8080/unsecure/data/.demoapp.socialsecuritynumber?edit=true&css=iframe{border:none;height:50px;}"></iframe>
         </body>
     </html>
 
@@ -146,7 +146,7 @@ form using events and javascript::
 
 Use the ``js_message`` query parameter when retrieving an editable field::
 
-    <iframe src="http://localhost:8080/data/.demoapp.name.?edit=true&js_message=c3VibWl0"></iframe>
+    <iframe src="http://localhost:8080/unsecure/data/.demoapp.name.?edit=true&js_message=c3VibWl0"></iframe>
 
 The :ref:`Client<client>` response will contain a form which posts the message
 ``"submit"`` to the parent page when the submit button is clicked. Listen for
@@ -188,7 +188,7 @@ request body in the form::
 Next, add the relay_url query parameter to the Redact client request within an
 iframe::
 
-    <iframe src="http://localhost:8080/data/.demoapp.name.?edit=true&relay_url=https%3A%2F%2Ffoo.bar%2Fredact%2Frelay"></iframe>
+    <iframe src="http://localhost:8080/unsecure/data/.demoapp.name.?edit=true&relay_url=https%3A%2F%2Ffoo.bar%2Fredact%2Frelay"></iframe>
 
 When this data is submitted, a POST request will be made to
 ``https://foo.bar/redact/relay`` with the JSON body::
